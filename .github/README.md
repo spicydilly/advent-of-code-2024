@@ -6,7 +6,7 @@ The 2024 Advent of Code event can be found at <https://adventofcode.com/2024>.
 
 ### Prerequisites
 
-* This project uses [Python 3.11](https://www.python.org/downloads/release/python-3110/).
+* This project uses [Python 3.13](https://www.python.org/downloads/release/python-3130/).
 * Dependencies are managed using [Poetry](https://python-poetry.org/docs/#installation). If you haven't installed it yet, use this command:
 
     ```shell
@@ -40,4 +40,18 @@ After activating the virtual environment with the command `poetry shell`, use th
 
 ```shell
 pytest
+```
+
+### Runing the Solutions
+
+You can run any of the solutions with the following command:
+
+```shell
+python3 main.py <day>
+```
+
+Optionally, you can run the example inputs with the following command:
+
+```shell
+python3 main.py <day> --use-example
 ```

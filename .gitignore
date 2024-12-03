@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+.pytest_cache/
+
+# Poetry
+.env/
+.venv/
+
+# IDE
+.vscode/
+
+# Test reports
+.coverage
+
+# AOC doesn't ant input files commited
+inputs/*.txt
+# But allow the examples
+!inputs/*example*.txt
