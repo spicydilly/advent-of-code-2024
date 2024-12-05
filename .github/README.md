@@ -55,3 +55,7 @@ Optionally, you can run the example inputs with the following command:
 ```shell
 python3 main.py <day> --use-example
 ```
+
+## Template
+
+There is an included template built using [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/), refer to the [README in the cookiecutter-template directory](/cookiecutter-template/README.md) for more information.
