@@ -1,6 +1,6 @@
 # Advent of Code Day Template
 
-> This uses [Cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.2/index.html) for generating the template
+> This uses [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/) for generating the template
 
 This template will generate the following:
 
