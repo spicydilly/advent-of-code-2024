@@ -40,7 +40,7 @@ def move_files() -> None:
     """
     Moves generated files from the template subdirectories to the correct locations.
     """
-    day_number = "{{cookiecutter.day_number}}"
+    day_number = "{{cookiecutter.__day_number}}"
     base_dir = Path.cwd()  # Current directory after generation
     parent_dir = base_dir.parent  # Destination root directory
 
@@ -49,6 +49,7 @@ def move_files() -> None:
         ("solutions", f"day{day_number}.py"),
         ("tests", f"test_day{day_number}.py"),
         ("inputs", f"day{day_number}-example.txt"),
+        ("inputs", f"day{day_number}.txt"),
     ]
 
     # Move files

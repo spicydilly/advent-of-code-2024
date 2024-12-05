@@ -1,3 +1,4 @@
 {
-    "day_number": "0"
+    "day": "0",
+    "__day_number": "{{cookiecutter.day.zfill(2)}}"
 }
