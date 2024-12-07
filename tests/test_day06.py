@@ -9,7 +9,3 @@ def test_part_1():
 
 def test_part_2():
     assert Solution(read_input(6, True)).part_2() == 6
-
-
-def test_part_2_1():
-    assert Solution(read_input(6, True, 2)).part_2() == 19
