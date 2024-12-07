@@ -1,5 +1,5 @@
 class Solution:
-    def __init__(self, input):
+    def __init__(self, input: str):
         self.input = input
 
     def part_1(self) -> int:
