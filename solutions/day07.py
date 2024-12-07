@@ -89,7 +89,7 @@ class Solution:
             # Check if the result is greater than the target
             # If it is, the combination is never valid
             # as we cannot decrease the result
-            # This only works becase the operators are in order
+            # This only works becase the operators are additive
             if int(result) > target:
                 return False
 
