@@ -1,3 +1,4 @@
+import time
 from utils.read_input import read_input
 import importlib
 import argparse
@@ -24,15 +25,25 @@ def main(day: int, use_example: bool):
 
         # Solve Part 1
         if hasattr(solution, "part_1"):
+            start_time = time.time()
             result_part_1 = solution.part_1()
-            print(f"Day {day:02} Part 1: {result_part_1}")
+            end_time = time.time()
+            print(
+                f"Day {day:02} Part 1: {result_part_1}"
+                f"\t({end_time - start_time:.2f} seconds)"
+            )
         else:
             print(f"Day {day:02} Part 1: Not implemented.")
 
         # Solve Part 2
         if hasattr(solution, "part_2"):
+            start_time = time.time()
             result_part_2 = solution.part_2()
-            print(f"Day {day:02} Part 2: {result_part_2}")
+            end_time = time.time()
+            print(
+                f"Day {day:02} Part 2: {result_part_2}"
+                f"\t({end_time - start_time:.2f} seconds)"
+            )
         else:
             print(f"Day {day:02} Part 2: Not implemented.")
 
