@@ -129,7 +129,7 @@ class Solution:
         """
         max_y, max_x = hiking_map.shape
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # Up, down, left, right
-        memory = {}
+        memo = {}
 
         def dfs(x: int, y: int) -> int:
             """
@@ -145,8 +145,8 @@ class Solution:
             if (x, y) == destination:
                 return 1
 
-            if (x, y) in memory:
-                return memory[(x, y)]
+            if (x, y) in memo:
+                return memo[(x, y)]
 
             path_count = 0
             for dx, dy in directions:
@@ -159,7 +159,7 @@ class Solution:
                 ):
                     path_count += dfs(new_x, new_y)
 
-            memory[(x, y)] = path_count
+            memo[(x, y)] = path_count
             return path_count
 
         return dfs(trailhead[0], trailhead[1])
