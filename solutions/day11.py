@@ -1,4 +1,5 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
@@ -8,14 +9,15 @@ class Solution:
     def part_1(self) -> int:
         number_of_blinks = 25
         stones_after_blinks = self.transform_stones(self.input, number_of_blinks)
-        return len(stones_after_blinks)
+        return stones_after_blinks
 
     def part_2(self) -> int:
-        # Implement Part 2 logic
-        pass
+        number_of_blinks = 75
+        stones_after_blinks = self.transform_stones(self.input, number_of_blinks)
+        return stones_after_blinks
 
     @staticmethod
-    def transform_stones(stones: List[int], blinks: int) -> List[int]:
+    def transform_stones(stones: List[int], blinks: int) -> int:
         """
         Transform the stones, for x blinks following the rules in order:
             1. If stone is 0, replace with 1
@@ -29,29 +31,36 @@ class Solution:
             blinks (int): The number of blinks
 
         Returns:
-            List[str]: The transformed stones
+            int: The total number of stones
         """
-        new_stones = stones.copy()
-        # Implement the transformation logic
+
+        def transform(stone: int) -> List[int]:
+            """Transform a single stone using the rules."""
+            if stone == 0:
+                return [1]
+            elif len(str(stone)) % 2 == 0:
+                str_stone = str(stone)
+                mid = len(str_stone) // 2
+                left = int(str_stone[:mid].lstrip("0") or "0")
+                right = int(str_stone[mid:].lstrip("0") or "0")
+                return [left, right]
+            else:
+                return [stone * 2024]
+
+        # Use a Counter to track the frequency of each stone
+        stone_counts = Counter(stones)
+
         for _ in range(blinks):
-            new_stones = []
-            for stone in stones:
-                if stone == 0:
-                    # Rule 1: Replace 0 with 1
-                    new_stones.append(1)
-                elif len(str(stone)) % 2 == 0:
-                    # Rule 2: Split even-digit stones into two stones
-                    str_stone = str(stone)
-                    mid = len(str_stone) // 2
-                    left, right = str_stone[:mid], str_stone[mid:]
-                    new_stones.append(
-                        int(left.lstrip("0") or "0")
-                    )  # Avoid empty strings
-                    new_stones.append(
-                        int(right.lstrip("0") or "0")
-                    )  # Avoid empty strings
-                else:
-                    # Rule 3: Multiply by 2024
-                    new_stones.append(stone * 2024)
-            stones = new_stones  # Update stones for the next blink
-        return stones
+            new_stone_counts = Counter()
+            for stone, count in stone_counts.items():
+                transformed = transform(stone)
+                for new_stone in transformed:
+                    new_stone_counts[new_stone] += count
+            stone_counts = new_stone_counts  # Update for the next blink
+
+        # get the total number of stones
+        result = 0
+        for count in stone_counts.values():
+            result += count
+
+        return result
