@@ -8,4 +8,4 @@ def test_part_1():
 
 
 def test_part_2():
-    assert Solution(read_input(12, True)).part_2() == 0
+    assert Solution(read_input(12, True)).part_2() == 1206
